@@ -3,7 +3,7 @@ A simulator for Bayes classifier Loss analysis in order to evaluate Trade Off Be
 
 Classes:
 
-*Model*, which represents the model proposed in the article
+*Model*, which represents the model proposed in the article "A Statistical Learning Theory Approach To Trade Off Between Samples and Features in Classification Problems"
 
 *Simulator*, which represents the simulator designed to receive an object of type Model along with other simulation parameters.
 
