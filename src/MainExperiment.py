@@ -1,3 +1,11 @@
+import numpy as np
+import pygsheets
+from GspreadClient import GspreadClient
+from Model import Model
+from Simulator import Simulator
+from docs.cenarios_0 import cenario1_0, cenario2_0, cenario3_0, cenario4_0
+from docs.cenarios_1 import cenario1, cenario2, cenario3, cenario4
+
 cenarios = [cenario1, cenario2, cenario3, cenario4]
 cenarios_0 = [cenario1_0, cenario2_0, cenario3_0, cenario4_0]
 selected_cenario = 0

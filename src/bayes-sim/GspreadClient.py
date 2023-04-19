@@ -4,7 +4,6 @@ import numpy as np
 import pygsheets as pygsheets
 
 
-
 class GspreadClient:
     """GspreadClient performs operations using gspread, a Python API for Google Sheets"""
 
@@ -42,7 +41,7 @@ class GspreadClient:
                 if ws_title_index == 0:
                     sh.add_worksheet(sheet_title, rows=3 + len(report.sim.model.N) + 3 * chart_height, cols=45)
                 else:
-                    sh.add_worksheet(sheet_title + '[' + str(ws_title_index) + ']', rows=(len(sim.model.N) + 60),
+                    sh.add_worksheet(sheet_title + '[' + str(ws_title_index) + ']', rows=(len(report.sim.model.N) + 60),
                                      cols=45)
             except googleapiclient.errors.HttpError:
                 ws_title_index += 1
@@ -505,6 +504,7 @@ class GspreadClient:
 
         loss_types = []
         for loss_type in report.sim.loss_types:
+            from EnumTypes import LossType
             if loss_type != LossType.EMPIRICALTRAIN.value:
                 loss_types.append(loss_type)
 

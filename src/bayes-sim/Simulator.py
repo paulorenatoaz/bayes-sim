@@ -1,9 +1,19 @@
+import math
+import time
+import numpy as np
+from sklearn import svm
 from Report import Report
 import os
+from scipy.stats import multivariate_normal, norm
+import Model
+import Report
+import GspreadClient
+import EnumTypes
 
 
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
+
 
 
 class Simulator:
@@ -14,11 +24,11 @@ class Simulator:
                  augmentation_until_n=2 ** 10):
 
         """
-        :param model (Model): Bayes Classifier Loss Analysis Model
-        :param gspread_client (GspreadClient): Client to connect gspreadheets for results registering
-        :param dims (List(int)):
-        :param loss_types (List(str)): types of Loss comparation graphs wich will be compiled by the Simulator
-        :param test_samples_amt (int): number of test samples to be genarated for prediction Loss evaluation
+        :param model : Bayes Classifier Loss Analysis Model
+        :param gspread_client : Client to connect gspreadheets for results registering
+        :param dims :
+        :param loss_types : types of Loss comparation graphs wich will be compiled by the Simulator
+        :param test_samples_amt : number of test samples to be genarated for prediction Loss evaluation
         :param step_size (int): number of datasets generated in one simulation step equals step_size*sqrt(2e10)/sqrt(n), if n < 2e10, else it equals step_size
         :param max_steps (int): max number of steps per n ∈ N
         :param first_step (int): min number of steps per n ∈ N

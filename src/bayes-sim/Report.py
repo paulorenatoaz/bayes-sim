@@ -1,4 +1,9 @@
 import itertools
+import numpy as np
+import EnumTypes
+from shapely.geometry import LineString
+import matplotlib.pyplot as plt
+
 
 
 class Report:
@@ -42,7 +47,7 @@ class Report:
                 dims_aux.append(d)
 
         delta_L1 = {
-            dim: [loss_N[dim][LossType.THEORETICAL.value][i] - loss_bayes[dim] if loss_bayes[dim] > 0 else 0 for i in
+            dim: [loss_N[dim][EnumTypes.LossType.THEORETICAL.value][i] - loss_bayes[dim] if loss_bayes[dim] > 0 else 0 for i in
                   range(len(N))] for dim in dims} if LossType.THEORETICAL.value in self.sim.loss_types else []
 
         delta_L2 = {
